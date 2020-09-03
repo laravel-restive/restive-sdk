@@ -293,7 +293,15 @@ class ApiQueryBuilderTest extends \Orchestra\Testbench\TestCase
             ->with('variants1', 'variants2')
             ->with('variants3')
             ->get();
-        $this->assertEquals('columns[]=id,name,foo&join[]=cross:user::&with[]=variants1,variants2,variants3&where[]=id:eq:1&orWhere[]=id:eq:2&whereIn[]=id:(2,3,4)&whereBetween[]=id:3:4&', $url);
+        $this->assertEquals("columns[]=id,name,foo&join[]=cross:user::&with[]=variants1,variants2,variants3&where[]=id:eq:1&orWhere[]=id:eq:2&whereIn[]=id:(2,3,4)&whereBetween[]=id:3:4&orderBy[]=-id&", $url);
+
+        $aqb = new ApiQueryBuilder();
+        $url = $aqb->where('id', 1)
+            ->orWhere('id', 2)
+            ->orderBy('id')->orderBy('name', 'desc')
+            ->limit(1)
+            ->get();
+        $this->assertEquals("&with[]=&where[]=id:eq:1&orWhere[]=id:eq:2&orderBy[]=id,-name&limit[]=1&", $url);
     }
 
 }

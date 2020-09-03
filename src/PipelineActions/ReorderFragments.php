@@ -15,6 +15,7 @@ class ReorderFragments implements StageInterface
         'RestiveSDK\\PipelineActions\\WithClauseSorter',
         'RestiveSDK\\PipelineActions\\WhereClauseSorter',
         'RestiveSDK\\PipelineActions\\OrderClauseSorter',
+        'RestiveSDK\\PipelineActions\\LimitClauseSorter',
         'RestiveSDK\\PipelineActions\\TrashedClauseSorter',
         ];
 

@@ -173,7 +173,13 @@ class ApiQueryBuilder
         return $this;
     }
 
-    public function getOPeratorMap()
+    public function limit($limit)
+    {
+        $this->fragments[] = ['type' => 'limit', 'parameters' => $limit];
+        return $this;
+    }
+
+    public function getOperatorMap()
     {
         return $this->operatorMap;
     }

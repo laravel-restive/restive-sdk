@@ -13,6 +13,9 @@ class SelectClauseBuilder implements StageInterface
         if (!isset($orderFragments['columns'])) {
             return $payload;
         }
+        if (count($orderFragments['columns']) === 0) {
+            return $payload;
+        }
         $url = 'columns[]=';
         foreach ($orderFragments['columns'] as $column) {
 

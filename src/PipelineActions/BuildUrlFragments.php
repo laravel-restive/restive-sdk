@@ -15,6 +15,7 @@ class BuildUrlFragments implements StageInterface
         'RestiveSDK\\PipelineActions\\WithClauseBuilder',
         'RestiveSDK\\PipelineActions\\WhereClauseBuilder',
         'RestiveSDK\\PipelineActions\\OrderClauseBuilder',
+        'RestiveSDK\\PipelineActions\\LimitClauseBuilder',
         'RestiveSDK\\PipelineActions\\TrashedClauseBuilder',
         ];
 
