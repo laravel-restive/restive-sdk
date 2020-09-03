@@ -12,6 +12,7 @@ class BuildUrlFragments implements StageInterface
     protected $pipelines = [
         'RestiveSDK\\PipelineActions\\SelectClauseBuilder',
         'RestiveSDK\\PipelineActions\\JoinClauseBuilder',
+        'RestiveSDK\\PipelineActions\\WithClauseBuilder',
         'RestiveSDK\\PipelineActions\\WhereClauseBuilder',
         'RestiveSDK\\PipelineActions\\OrderClauseBuilder',
         'RestiveSDK\\PipelineActions\\TrashedClauseBuilder',

@@ -12,6 +12,7 @@ class ReorderFragments implements StageInterface
     protected $pipelines = [
         'RestiveSDK\\PipelineActions\\SelectClauseSorter',
         'RestiveSDK\\PipelineActions\\JoinClauseSorter',
+        'RestiveSDK\\PipelineActions\\WithClauseSorter',
         'RestiveSDK\\PipelineActions\\WhereClauseSorter',
         'RestiveSDK\\PipelineActions\\OrderClauseSorter',
         'RestiveSDK\\PipelineActions\\TrashedClauseSorter',

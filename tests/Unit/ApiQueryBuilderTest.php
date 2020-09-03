@@ -50,8 +50,7 @@ class ApiQueryBuilderTest extends \Orchestra\Testbench\TestCase
         $aqb = $aqb->with('posts', 'tags');
         $fragments = $aqb->getFragments();
         $this->assertEquals('with', $fragments[0]['type']);
-        $this->assertEquals('posts', $fragments[0]['parameters'][0]);
-        $this->assertEquals('tags', $fragments[0]['parameters'][1]);
+        $this->assertEquals('posts,tags', $fragments[0]['parameters']);
     }
 
     /** @test */
@@ -291,8 +290,10 @@ class ApiQueryBuilderTest extends \Orchestra\Testbench\TestCase
             ->orderBy('id', 'desc')
             ->crossJoin('user')
             ->select('id', 'name')->select('foo')
+            ->with('variants1', 'variants2')
+            ->with('variants3')
             ->get();
-        $this->assertEquals("columns[]=id,name,foo&join[]=cross:user::&where[]=id:eq:1&orWhere[]=id:eq:2&whereIn[]=id:(2,3,4)&whereBetween[]=id:3:4&", $url);
+        $this->assertEquals('columns[]=id,name,foo&join[]=cross:user::&with[]=variants1,variants2,variants3&where[]=id:eq:1&orWhere[]=id:eq:2&whereIn[]=id:(2,3,4)&whereBetween[]=id:3:4&', $url);
     }
 
 }

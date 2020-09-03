@@ -53,7 +53,8 @@ class ApiQueryBuilder
     public function with($relations)
     {
         $relations = is_string($relations) ? func_get_args() : $relations;
-        $this->fragments[] = ['type' => 'with', 'parameters' => $relations];
+        $withs = implode(',', $relations);
+        $this->fragments[] = ['type' => 'with', 'parameters' => $withs];
         return $this;
     }
 
