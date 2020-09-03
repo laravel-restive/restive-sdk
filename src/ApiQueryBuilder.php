@@ -2,14 +2,13 @@
 
 namespace RestiveSDK;
 
-
 use InvalidArgumentException;
 use League\Pipeline\PipelineBuilder;
 
 class ApiQueryBuilder
 {
 
-    protected $fragments;
+    protected $fragments = [];
 
     protected $orderedFragments = [];
 
