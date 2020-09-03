@@ -1,3 +1,6 @@
 .idea
 vendor
 test_reports
+Clients
+!Clients/AbstractClient.php
+!Clients/ExampleClient.php
