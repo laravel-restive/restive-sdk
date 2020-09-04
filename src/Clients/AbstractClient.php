@@ -10,18 +10,15 @@ class AbstractClient
 
     protected $baseUrl = '';
 
-    protected $restiveUrl = '';
-
-    public function __construct(Guzzle $guzzle, $restiveUrl = '')
+    public function __construct(Guzzle $guzzle)
     {
         $this->guzzle = $guzzle;
-        $this->restiveUrl = $restiveUrl;
     }
 
-    public function call($method = 'GET')
+    public function call($method = 'GET', $url)
     {
         $method = strtoupper($method);
-        $uri = $this->domain. $this->baseUrl . '?' . $this->restiveUrl;
+        $uri = $this->domain . $this->baseUrl . $url;
         $response = $this->guzzle->request($method, $uri);
         return $response;
     }

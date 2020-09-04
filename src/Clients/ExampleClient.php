@@ -4,7 +4,7 @@
 namespace RestiveSDK\Clients;
 
 
-class ExampleClient
+class ExampleClient extends AbstractClient
 {
     protected $domain = 'https://restive.test';
 
