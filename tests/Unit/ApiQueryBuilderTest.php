@@ -301,7 +301,15 @@ class ApiQueryBuilderTest extends \Orchestra\Testbench\TestCase
             ->orderBy('id')->orderBy('name', 'desc')
             ->limit(1)
             ->get();
-        $this->assertEquals("&with[]=&where[]=id:eq:1&orWhere[]=id:eq:2&orderBy[]=id,-name&limit[]=1&", $url);
+        $this->assertEquals("where[]=id:eq:1&orWhere[]=id:eq:2&orderBy[]=id,-name&limit[]=1&", $url);
+
+        $aqb = new ApiQueryBuilder();
+        $url = $aqb->where('id', 1)
+            ->with('variants')
+            ->limit(1)
+            ->get();
+        $this->assertEquals("with[]=variants&where[]=id:eq:1&limit[]=1&", $url);
+
     }
 
 }

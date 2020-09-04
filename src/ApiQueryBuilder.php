@@ -201,6 +201,9 @@ class ApiQueryBuilder
 
     public function addOrderedFragments($key, $list)
     {
+        if (is_null($list) || empty($list)) {
+            return;
+        }
         $this->orderedFragments[$key] = $list;
     }
 
