@@ -16,13 +16,13 @@
   },
   "require": {
     "league/pipeline": "^1.0",
-    "guzzlehttp/guzzle": "^6.3"
+    "guzzlehttp/guzzle": "^6.3|^7.0"
   },
   "require-dev": {
-    "orchestra/testbench": "~3.0",
-    "phpunit/phpunit": "^7.0",
+    "orchestra/testbench": "~5.0|~6.0",
+    "phpunit/phpunit": "^8.0|^9.0",
     "codedungeon/phpunit-result-printer": "^0.19.12",
-    "nunomaduro/collision": "^2.0",
+    "nunomaduro/collision": "^4.0",
     "mockery/mockery": "^1.1"
   },
   "autoload-dev": {
